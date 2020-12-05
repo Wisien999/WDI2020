@@ -3,9 +3,6 @@ def convert2rd(x, y):
 
 
 def convert2ld(x, y):
-
-    # return x + y//2 - 1
-
     if x > y:
         ldx = x - y
         ldy = 0
