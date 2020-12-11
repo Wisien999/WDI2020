@@ -9,9 +9,11 @@ def rek(t, y, curr_sum, target_sum, not_empty = False, columns = set()):
             continue
 
         # print("next column:", x)
-        if rek(t, y+1, curr_sum, target_sum, not_empty, {*columns}) or rek(t, y+1, curr_sum+t[y][x], target_sum, True, {*columns, x}):
+        if rek(t, y+1, curr_sum, target_sum, not_empty, {*columns}) or \
+            rek(t, y+1, curr_sum+t[y][x], target_sum, True, {*columns, x}):
             return True
 
+    return False
 
 arr = [
     [1,4,7],
