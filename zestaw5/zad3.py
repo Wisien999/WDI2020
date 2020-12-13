@@ -9,7 +9,7 @@ def check(tab):
 
             a = (het1[1] - het2[1])/(het1[0]-het2[0])
 
-            if a == 1.0:
+            if a == 1.0 or a == -1.0:
                 return False
     
     return True
