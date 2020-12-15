@@ -7,7 +7,7 @@ def skr(num):
         
         return a
 
-    div = nwd(x, y)
+    div = nwd(abs(x), abs(y))
 
     return  x//div, y//div
 
