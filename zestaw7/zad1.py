@@ -45,4 +45,25 @@ class node:
 
         if self.contains(val):
             rek(self, val)
+    
+    def __str__(self):
+        a = self
+        ans = ""
+        while a.next is not None:
+            # yield str(a.val) + " "
+            ans += str(a.val) + " "
+            # print(a.val, end=" ")
+            a = a.next
+        
+        return ans
+
+
+my_set = node(5)
+my_set.add(7)
+my_set.add(9)
+my_set.add(234)
+my_set.add(7)
+my_set.add(-3)
+
+print(my_set)
 
