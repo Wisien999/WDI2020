@@ -18,9 +18,8 @@ def check(num):
 
 def solve(l):
     l = l.next # Wartownik
-    # f = l
+    
     last_val = l.val
-    # l = l.next
 
     while l.next != None:
         curr_val = l.next.val
@@ -29,8 +28,6 @@ def solve(l):
             l.next = l.next.next
         else:
             l = l.next  
-
-    # print()
 
 
 a = arr2list([2,4,6,1,5,10,4,12])

@@ -8,9 +8,8 @@ from time import sleep
 
 def solve(l):
     l = l.next # Wartownik
-    # f = l
+    
     last_val = l.val
-    # l = l.next
 
     while l.next.next != None:
         curr_val = l.next.val
@@ -18,11 +17,7 @@ def solve(l):
         if curr_val < last_val:
             curr_val = l.next.next.val
             l.next = l.next.next
-          
-
-        # print("curr:", curr_val, "last:", last_val)
-        # print_ll(f)
-        # sleep(1)
+        
 
         last_val = curr_val
         l = l.next  
