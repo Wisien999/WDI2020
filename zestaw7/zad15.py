@@ -17,10 +17,6 @@ def check(num):
 
 
 def solve(l):
-    l = l.next # Wartownik
-    
-    last_val = l.val
-
     while l.next != None:
         curr_val = l.next.val
 

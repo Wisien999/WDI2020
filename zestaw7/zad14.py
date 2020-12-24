@@ -7,10 +7,6 @@ from helper_module import print_ll, Node, arr2list
 from time import sleep
 
 def solve(l):
-    l = l.next # Wartownik
-    
-    last_val = l.val
-
     while l.next != None and l.next.next != None:
         curr_val = l.next.val
         next_val = l.next.next.val
