@@ -14,20 +14,10 @@ class Node_d:
 
 def print_ll(ll: Node):
     c = ll
-    if ll.val == None:
-        start = ll.next
-        print(c.val, end="     ")
-        c = c.next
-    else:
-        start = ll
 
-    if c != None:
-        print(c.val, end="     ")
-        c = c.next
-
-    while c != None and c != start:
+    while c != None:
         # if c.val =
-        print(c.val, end="     ")
+        print("[", c.a, "|", c.b, "]", end="     ")
         c = c.next
     print()
 

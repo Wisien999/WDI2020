@@ -12,7 +12,7 @@ class Node_d:
         self.prev = None
 
 
-def print_ll(ll: Node):
+def print_ll(ll: Node, stop=None):
     c = ll
     if ll.val == None:
         start = ll.next
@@ -25,7 +25,7 @@ def print_ll(ll: Node):
         print(c.val, end="     ")
         c = c.next
 
-    while c != None and c != start:
+    while c != None and c != start and c != stop:
         # if c.val =
         print(c.val, end="     ")
         c = c.next
