@@ -8,7 +8,6 @@ from time import sleep
 
 
 def no_of_1s_in_biary_odd(num):
-    return num==1
     counter = 0
 
     while num > 0:
