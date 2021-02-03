@@ -7,7 +7,6 @@ def find_kth_smallest(tab, k):
         same = 0
 
         for el in tab:
-        # for el in tab:
             if el < determinant:
                 smaller.append(el)
             elif el == determinant:
@@ -15,20 +14,11 @@ def find_kth_smallest(tab, k):
             else:
                 greater.append(el)
         
-        # if len(smaller) < k:
-        #     break
 
-
-        # if len(smaller) == k:
-        #     return max(smaller)
-        # if len(smaller) == 0:
-        #     tab = greater
-        #     print("smaller empty", greater)
         if len(smaller) >= k:
             print("smaller", smaller)
             print("k", k, "     len smaller:", len(smaller))
             tab = smaller
-        # elif len(tab) >= k:
         else:
             
 
@@ -44,18 +34,13 @@ def find_kth_smallest(tab, k):
                 k -= same
 
             print("new k:", k, "   len smaller:", len(smaller))
-        # else:
-        #     print("smaller", smaller)
-        #     print("greater", greater)
-        #     return determinant
 
 
         
         print("---------------------")
         if len(tab) <= 1:
             break
-    
-    # return sorted(tab)[k-1]
+
 
     return tab[0]
 
