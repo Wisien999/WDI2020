@@ -1,6 +1,11 @@
-import math
+# Zadanie 14. 
+# Dane są dwie liczby naturalne z których budujemy trzecią liczbę. W budowanej liczbie muszą
+# wystąpić wszystkie cyfry występujące w liczbach wejściowych. Wzajemna kolejność cyfr każdej z liczb
+# wejściowych musi być zachowana. Na przykład mając liczby 123 i 75 możemy zbudować liczby 12375, 17523,
+# 75123, 17253, itd. Proszę napisać funkcję która wyznaczy ile liczb pierwszych można zbudować z dwóch
+# zadanych liczb.
 
-# possible multiple counts???
+import math
 
 
 def is_prime(num):
@@ -22,35 +27,49 @@ def is_prime(num):
 def get_leng(num):
     return math.floor(math.log10(num)) + 1
 
-def create_number(a, to_slice, leng_a, leng_to_slice, at):
+
+def validate_mask(leng1: int, leng2: int, mask: int):
+    while mask > 0:
+        if mask % 2 == 0:
+            leng1 -= 1
+        else:
+            leng2 -= 1
+
+        mask //= 2
+
+
+    return leng1 >= 0 and leng2 == 0
+
+
+def mix_numbers(a: int, b: int, mask: int):
     new_num = 0
-    new_num += to_slice//(10**(leng_to_slice-at))
-    new_num *= 10**leng_a
-    new_num += a
-    new_num *= 10**(leng_to_slice-at)
-    new_num += to_slice%(10**(leng_to_slice-at))
+    mult = 1
+
+    while mask > 0 or a > 0:
+        if mask % 2 == 0:
+            d = a % 10
+            a //= 10
+        else:
+            d = b % 10
+            b //= 10
+
+        mask //= 2
+
+        new_num = d*mult + new_num
+        mult *= 10
+
     return new_num
 
 
-print(get_leng(125032))
-print(get_leng(1250340))
-print(create_number(5,1234567,1,7,3))
-print(create_number(52,1234567,2,7,3))
-print(create_number(92,1234567,2,7,1))
-print(create_number(17,1234567,2,7,0))
+if __name__ == "__main__":
+    print(mix_numbers(135, 24, int('01100', base=2)))
 
-counter = 0
-a, b = map(int, input().split())
-# possible multiple counts???
+    counter = 0
+    a, b = map(int, input().split())
+    leng_a, leng_b = get_leng(a), get_leng(b)
 
-for i in range(get_leng(a)):
-    print(create_number(b, a, get_leng(b), get_leng(a), i))
-    if is_prime(create_number(b, a, get_leng(b), get_leng(a), i)):
-        counter += 1
+    for mask in range(2**(leng_a + leng_b)):
+        if validate_mask(leng_a, leng_b, mask) and is_prime(mix_numbers(a, b, mask)):
+            counter += 1
 
-for i in range(get_leng(b)):
-    print(create_number(a, b, get_leng(a), get_leng(b), i))
-    if is_prime(create_number(a, b, get_leng(a), get_leng(b), i)):
-        counter += 1
-
-print(counter)
+    print(counter)
